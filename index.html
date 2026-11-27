@@ -6,18 +6,23 @@
 <title>Room Drop – Privacy Policy</title>
 <style>
   body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1b2430; }
-  h1 { font-size: 1.8rem; } h2 { font-size: 1.2rem; margin-top: 2rem; }
+  h1 { font-size: 1.8rem; } h2 { font-size: 1.2rem; margin-top: 2rem; } h3 { font-size: 1rem; margin-top: 1.4rem; }
   .muted { color: #66717f; }
 </style>
 </head>
 <body>
 <h1>Room Drop – Privacy Policy</h1>
-<p class="muted">Last updated: 22 November 2026</p>
+<p class="muted">Last updated: 28 November 2026</p>
 
-<p>Room Drop is an app for sending files between your own devices (phones, PCs and laptops) over your local Wi-Fi network. This policy explains what happens to your information when you use it. In short: <strong>Room Drop does not collect, store, sell or share any of your data.</strong></p>
+<p>Room Drop is an app for sending files between your own devices (Android phones, Windows PCs and laptops) over Wi-Fi. This policy covers the Android app and the Windows app. In short: <strong>Room Drop has no servers and no accounts. Your files and personal information are never sent to us or to anyone else.</strong> The only information that leaves your devices is described in section 7 (Google's QR code scanner).</p>
 
 <h2>1. Files you send and receive</h2>
-<p>Files travel directly from one of your devices to another over your local Wi-Fi network. They are never uploaded to the internet, to our servers or to any third party — Room Drop has no servers. Every transfer is encrypted. Received files are saved on your device (on Android in Download/Room Drop) and stay under your control.</p>
+<p>Files travel directly from one of your devices to another, either through your Wi-Fi router or over a direct connection between the two devices ("Connect directly", see section 4). They are never uploaded to the internet, to us or to any third party. Every transfer is encrypted (TLS), and only devices you have paired with a PIN can send you files. You accept or decline each incoming transfer (or choose to auto-accept from your own trusted devices).</p>
+<p>Received files are saved on your device and stay under your control:</p>
+<ul>
+  <li>Android: photos and videos in <em>Pictures/Room Drop</em> (so they appear in your Gallery), other files in <em>Download/Room Drop</em>, sorted into a folder for each day and by type (for example "Videos", "PDF").</li>
+  <li>Windows: in <em>Downloads\Room Drop</em> (or the folder you choose), sorted the same way.</li>
+</ul>
 
 <h2>2. Information stored only on your device</h2>
 <p>To work, Room Drop keeps a small amount of information on your own device. None of it is sent to us:</p>
@@ -25,35 +30,66 @@
   <li>The device name you choose (for example "Abdul-Phone") and your settings.</li>
   <li>A list of devices you have paired with, and a security certificate used to encrypt transfers.</li>
   <li>A transfer history (file names, sizes and where they were saved), limited to the last 200 transfers. You can clear it at any time in the app.</li>
+  <li>Small working files so transfers can resume after a Wi-Fi drop.</li>
+  <li>For "Connect directly": the speed measured on earlier direct connections, and (on Windows) the list of Wi-Fi networks whose automatic connection was paused, so it can always be switched back on (see section 4).</li>
 </ul>
 <p>Uninstalling the app removes this information. Files you received are not deleted.</p>
 
 <h2>3. Information shared with other devices on your network</h2>
-<p>While Room Drop is open, it announces your chosen device name, device type (phone, PC or laptop) and a technical device identifier on your local Wi-Fi network so your other devices can find it. This information never leaves your local network. Only devices you have paired with using a PIN can send you files.</p>
+<p>While Room Drop is open, it announces your chosen device name, device type (phone, PC or laptop), a random device identifier and its security certificate fingerprint on the local network (your Wi-Fi, or the direct connection), so your other devices can find it. This information never leaves that local network.</p>
 
-<h2>4. What we do not do</h2>
+<h2>4. "Connect directly" (offline mode) – what it does to your Wi-Fi</h2>
+<p>When there is no Wi-Fi router, Room Drop can connect two devices to each other directly. This only happens when you choose "Connect directly" and tap Send, Receive or Connect. To do this Room Drop temporarily changes some Wi-Fi settings on your device, and puts them back when you stop offline mode (or when the other device stops it). Nothing about your networks is sent anywhere.</p>
+
+<h3>On Windows</h3>
 <ul>
-  <li>No accounts or sign-in.</li>
-  <li>No analytics, tracking, advertising or crash reporting.</li>
-  <li>No collection of personal information, location, contacts or usage data.</li>
-  <li>No data is sold or shared with anyone.</li>
+  <li><strong>Turns Wi-Fi on</strong> if it is switched off, because the direct connection needs it.</li>
+  <li><strong>Starts a private Wi-Fi network</strong> using Windows Mobile Hotspot (or Wi-Fi Direct if Mobile Hotspot is not available). It is named "RoomDrop-" followed by your device name, and has a password both Room Drop devices work out automatically. It does not share your internet connection. Room Drop prefers the faster 5 GHz band and uses 2.4 GHz only if 5 GHz is not available.</li>
+  <li><strong>Borrows your Mobile Hotspot settings:</strong> your own hotspot name, password and band are remembered, replaced while offline mode is on, and put back afterwards.</li>
+  <li><strong>Leaves your current Wi-Fi network</strong> while the private network is on, because most Wi-Fi cards can only run a fast 5 GHz connection when they are not also connected to a router. While this is on, the PC has no internet over Wi-Fi (a network cable keeps working). Afterwards Windows reconnects to your network.</li>
+  <li><strong>Joins the other device's private network</strong> when you tap Connect. Windows saves it as a Wi-Fi network for a moment; Room Drop deletes that saved network again when offline mode stops.</li>
+  <li><strong>Pauses "Connect automatically"</strong> on your saved Wi-Fi networks while connected directly, so Windows doesn't jump back to your router in the middle of a transfer. The list of paused networks is written to a file on your PC and they are all switched back to automatic when offline mode stops – or the next time Room Drop starts, if it was closed first.</li>
+  <li><strong>Looks at the names of nearby Wi-Fi networks</strong> to find other Room Drop devices. Only names starting with "RoomDrop-" are used; nothing is stored or sent.</li>
+  <li><strong>Firewall:</strong> with your permission (Windows asks you to confirm), Room Drop adds Windows Firewall rules so other Room Drop devices can reach it on any network type. A direct connection counts as a "public" network in Windows. The rules only allow Room Drop's own ports (53317–53330 and 53318) and the Room Drop program.</li>
 </ul>
 
-<h2>5. Permissions</h2>
+<h3>On Android</h3>
 <ul>
-  <li><strong>Network and Wi-Fi access</strong> – to find your devices and transfer files on your local network.</li>
+  <li><strong>Starts a local-only hotspot</strong> (Android picks its name and password; it shares no internet), or <strong>joins the other device's private network</strong> – Android asks you to confirm before joining. While joined, only Room Drop's traffic uses that network; your other apps keep using your normal connection.</li>
+  <li><strong>Looks at the names of nearby Wi-Fi networks</strong> to show nearby Room Drop PCs. This uses the "Nearby devices" permission, marked in the app as <em>not used for location</em>. On Android 12 and older, Android requires the Location permission (and Location switched on) to start a hotspot or scan Wi-Fi; Room Drop never reads, stores or sends your location.</li>
+  <li><strong>Scans a QR code</strong> shown by the other device to join its network – see section 7.</li>
+</ul>
+
+<h2>5. Videos that another phone can't play</h2>
+<p>When you send a large video (for example 4K) from one phone to another, Room Drop asks the receiving phone which video sizes it can play. If it can't play your video, you can choose to send a smaller copy (for example 1440p). The copy is made on your phone, kept only in Room Drop's temporary storage, and deleted afterwards. Your original video is not changed. Only the video's size and type are exchanged between your two devices.</p>
+
+<h2>6. Permissions</h2>
+<ul>
+  <li><strong>Network and Wi-Fi access, change Wi-Fi state, multicast</strong> – to find your devices, transfer files and make direct connections.</li>
+  <li><strong>Nearby devices (Android 13+) / Location (Android 12 and older only)</strong> – required by Android to start a hotspot and see nearby Wi-Fi network names for "Connect directly". Not used for location.</li>
   <li><strong>Notifications</strong> – to show transfer progress.</li>
   <li><strong>Foreground service and keeping the device awake</strong> – so a transfer you started keeps running when the screen turns off.</li>
 </ul>
-<p>Room Drop only reads files you choose to send, and only writes files you accept.</p>
+<p>Room Drop only reads files you choose to send, and only writes files you accept. It does not ask for camera, contacts, microphone or account permissions.</p>
 
-<h2>6. Children</h2>
-<p>Room Drop does not knowingly collect any information from anyone, including children.</p>
+<h2>7. Google's QR code scanner (Android)</h2>
+<p>To scan a QR code, Room Drop uses Google's code scanner, part of Google Play services (ML Kit). The camera is opened by Google Play services, not by Room Drop, and the image is processed on your phone. Room Drop only receives the text in the code. To run this scanner, Google collects technical information such as device model, Android version, app package and version, performance and error information, and per-installation identifiers, for diagnostics and usage analytics. Google encrypts this data in transit and says it does not share it with third parties. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
 
-<h2>7. Changes</h2>
+<h2>8. What we do not do</h2>
+<ul>
+  <li>No accounts or sign-in.</li>
+  <li>No ads, no analytics or tracking of our own, no crash reporting.</li>
+  <li>No collection of your files, personal information, location, contacts or usage data by us.</li>
+  <li>No data is sold or shared with anyone.</li>
+</ul>
+
+<h2>9. Children</h2>
+<p>Room Drop is not directed at children and does not knowingly collect information from anyone, including children.</p>
+
+<h2>10. Changes</h2>
 <p>If this policy changes, the new version will be posted on this page with a new date.</p>
 
-<h2>8. Contact</h2>
+<h2>11. Contact</h2>
 <p>Questions? Email <a href="mailto:itsabdulswork@gmail.com">itsabdulswork@gmail.com</a>.</p>
 </body>
 </html>
